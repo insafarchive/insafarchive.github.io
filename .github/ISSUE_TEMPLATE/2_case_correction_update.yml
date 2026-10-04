@@ -1,0 +1,93 @@
+name: '📝 Existing Case Correction / مقدمے کے ریکارڈ میں تصحیح'
+description: Propose an update, correction of fact, or new procedural milestone for an existing case in Insaf Archive.
+title: '[Correction]: '
+labels: ['submission:case-correction', 'status:under-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Proposed Correction or Procedural Update
+        Insaf Archive maintains a strict **Right of Reply and Corrections Charter**. If you represent a party, are legal counsel of record, or have certified public documentation indicating an error or subsequent procedural milestone, please submit the details below.
+
+  - type: input
+    id: case_id
+    attributes:
+      label: Existing Stable Case ID
+      description: The unique archive identifier (e.g. `PK-SC-2024-0102`, `PK-LHC-2023-0451`).
+      placeholder: PK-SC-2024-0102
+    validations:
+      required: true
+
+  - type: input
+    id: case_title
+    attributes:
+      label: Case Title or Docket Number
+      description: Name of case as displayed on the live website.
+      placeholder: Title of the case being corrected...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_section
+    attributes:
+      label: Section or Field Requiring Correction
+      options:
+        - 'Procedural Status (e.g. subsequent bail granted, case disposed of, acquittal)'
+        - 'Factual Background & Summary'
+        - 'Party Details & Representation (including privacy redaction request)'
+        - 'Evidentiary Categorization (clarifying an allegation vs official finding)'
+        - 'Procedural Timeline Milestone Addition'
+        - 'Court Judgment or Citation Correction'
+        - 'Typographical / Translation Error in Urdu or English'
+        - 'Other / Takedown Request'
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current Information (on live site)
+      description: Copy the exact text, claim, or status currently displayed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_replacement
+    attributes:
+      label: Proposed Replacement / Updated Information
+      description: Provide the exact corrected text in English and Urdu.
+    validations:
+      required: true
+
+  - type: textarea
+    id: supporting_evidence
+    attributes:
+      label: Supporting Public Evidence or Certified Documentation
+      description: Provide certified court order sheets, law report citation, official gazette, or verifiable public record verifying the change.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affects_status
+    attributes:
+      label: Does this change alter the case's procedural or final status?
+      options:
+        - 'No — Factual, textual, or evidentiary clarification only'
+        - 'Yes — Interim relief or Bail granted (remains pending trial)'
+        - 'Yes — Case concluded by Acquittal under Sec 249-A/265-K CrPC'
+        - 'Yes — Conviction entered (subject to appeal)'
+        - 'Yes — Petition dismissed or disposed of'
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: correction_checklist
+    attributes:
+      label: Submitter Verification & Good Faith Confirmation
+      options:
+        - label: I confirm that this correction is backed by verifiable primary legal records or reported orders.
+          required: true
+        - label: I confirm that if this is a bail order, I have NOT described it as an acquittal.
+          required: true
+        - label: I understand that administrators will cross-verify the cited court orders before merging the update.
+          required: true

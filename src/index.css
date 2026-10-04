@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy-canvas: #0B132B;
+    --navy-surface: #111C3A;
+    --navy-surface-elevated: #18254B;
+    --gold-primary: #C5A85C;
+    --gold-light: #E0C57A;
+    --gold-muted: #8F7535;
+    --gold-hairline: rgba(197, 168, 92, 0.22);
+  }
+
+  /* English default typography */
+  html[dir="ltr"] {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Urdu typography */
+  html[dir="rtl"] {
+    font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', serif;
+  }
+
+  /* Urdu UI utility fonts for crisp small buttons, tables, badges */
+  .font-urdu-ui {
+    font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-legal-display {
+    font-family: 'Cinzel', 'Source Serif 4', Georgia, serif;
+  }
+
+  .font-prose-legal {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+}
+
+/* RTL line-height compensation for Nastaliq calligraphy */
+html[dir="rtl"] p,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] blockquote {
+  line-height: 2.1;
+}
+
+html[dir="rtl"] button,
+html[dir="rtl"] input,
+html[dir="rtl"] select,
+html[dir="rtl"] textarea,
+html[dir="rtl"] span.status-tag {
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar for Legal Records */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1C294D;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 168, 92, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A85C;
+}

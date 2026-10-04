@@ -1,0 +1,9 @@
+# Insaf Archive | انصاف آرکائیو
+# Public Digital Legal Archive of Pakistan
+# Zero mandatory financial cost - Hosted on GitHub Pages
+
+User-agent: *
+Allow: /
+Disallow: /dist/
+
+Sitemap: https://insafarchive.github.io/insafarchive/sitemap.xml

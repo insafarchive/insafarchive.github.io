@@ -1,0 +1,141 @@
+name: '🎥 Media & Court Document Submission / ویڈیو و عدالتی دستاویز'
+description: Submit a YouTube video of open court proceedings, a certified court order extract, an archival photograph, or an institutional report.
+title: '[Media/Doc]: '
+labels: ['submission:media-evidence', 'status:under-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Documentary & Media Evidence Submission (Phase 3 MediaItem Schema)
+        Insaf Archive indexes open-court audio-visual documentation, certified judgments, archival photographs, and forensic reports with strict evidentiary provenance.
+        - **YouTube Videos**: Provide official court broadcasts or verified briefings. Do not submit pirated or unauthorized private footage.
+        - **Court Orders & Documents**: Must include certified copy citations (e.g. SCMR, PLD, CLD) or official court registrar links.
+        - **Photographs**: Must represent physical courtroom dockets, official seals, or certified registers.
+
+  - type: input
+    id: associated_case_ids
+    attributes:
+      label: Associated Stable Case ID(s)
+      description: The existing case ID(s) this media connects to (e.g. `PK-SC-2024-0102`, `PK-LHC-2023-0451`).
+      placeholder: PK-SC-2024-0102
+    validations:
+      required: true
+
+  - type: dropdown
+    id: media_type
+    attributes:
+      label: Media Type
+      options:
+        - 'youtube_video (YouTube Open Court Hearing or Briefing)'
+        - 'document (Certified Court Order Sheet, Judgment, or Legal Decree)'
+        - 'image (Archival Court Registry Photograph or Certified Seal)'
+        - 'external_source (Institutional Forensic Report or Government Gazette)'
+        - 'audio (Judicial Audio Recording or Radio Court Broadcast)'
+    validations:
+      required: true
+
+  - type: input
+    id: media_title_en
+    attributes:
+      label: Media Title in English
+      placeholder: e.g. Supreme Court Full Bench Audio-Visual Hearing on Article 19
+    validations:
+      required: true
+
+  - type: input
+    id: media_title_ur
+    attributes:
+      label: Media Title in Urdu (اردو عنوان)
+      placeholder: اردو میں عنوان درج کریں...
+    validations:
+      required: true
+
+  - type: input
+    id: source_publisher
+    attributes:
+      label: Source Publisher / Issuing Authority
+      description: e.g. "Supreme Court of Pakistan Judicial Channel", "Lahore High Court Registry", "Punjab Forensic Science Agency".
+      placeholder: Issuing authority / channel name...
+    validations:
+      required: true
+
+  - type: input
+    id: source_url
+    attributes:
+      label: Primary Source URL / YouTube Link
+      description: e.g. `https://www.youtube.com/watch?v=...` or official government/court URL.
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: input
+    id: event_date
+    attributes:
+      label: Event / Hearing Date (ISO `YYYY-MM-DD`)
+      description: The actual date the hearing occurred, order was signed, or incident was photographed (stored separately from broadcast date!).
+      placeholder: 2024-04-15
+    validations:
+      required: true
+
+  - type: input
+    id: publication_date
+    attributes:
+      label: Publication / Broadcast Upload Date (ISO `YYYY-MM-DD`)
+      description: The date the recording was published or made publicly accessible online.
+      placeholder: 2024-04-16
+    validations:
+      required: false
+
+  - type: dropdown
+    id: verification_status
+    attributes:
+      label: Source Verification Tier
+      options:
+        - 'verified_official_record (Direct judicial broadcast, certified decree, or statutory gazette)'
+        - 'corroborated_reporting (Multiple accredited court reporters / bar association desk)'
+        - 'preliminary_documentation (Single reporter or uncertified preliminary transcript)'
+        - 'under_editorial_review (Submission pending documentary retrieval)'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short Bilingual Description
+      description: Brief explanation of what this recording, order, or photograph depicts and its legal relevance.
+    validations:
+      required: true
+
+  - type: textarea
+    id: video_timestamps
+    attributes:
+      label: Timestamped Key Takeaways (for YouTube Videos)
+      description: |
+        If submitting a video, list key moments:
+        `04:12` - Chief Justice questions counsel on threshold of summons
+        `18:40` - Advocate presents comparative jurisprudence on digital rights
+        `33:10` - Directive issued to submit statutory guidelines
+    validations:
+      required: false
+
+  - type: input
+    id: copyright_notice
+    attributes:
+      label: Copyright / Permission / Public Domain Notice
+      placeholder: Public judicial record under Supreme Court Open Justice Policy
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: media_checklist
+    attributes:
+      label: Media Verification & Privacy Review
+      options:
+        - label: The video or document does NOT display juvenile suspects, victims of sensitive offenses, or unredacted personal telephone/identity numbers.
+          required: true
+        - label: The source URL is an accessible, legal public link that does not bypass technological protection measures.
+          required: true
+        - label: The hearing date and publication date are accurately recorded and separated.
+          required: true
+        - label: I understand that public availability of a document does NOT automatically grant permission to republish, and administrators will inspect copyright and judicial restrictions.
+          required: true
