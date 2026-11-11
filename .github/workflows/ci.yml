@@ -1,0 +1,41 @@
+name: Insaf Archive CI & Data Integrity Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Typecheck TypeScript Codebase
+        run: npm run typecheck
+
+      - name: Run Linter
+        run: npm run lint
+
+      - name: Run Full Vitest Test Suite
+        run: npm run test
+
+      - name: Validate Production Dataset & Relationship Integrity
+        run: npm run validate-data
+
+      - name: Build Static Production Assets
+        run: npm run build

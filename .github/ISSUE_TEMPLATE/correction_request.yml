@@ -1,0 +1,58 @@
+name: Archival Correction Request (تصحیح کی درخواست)
+description: Report a factual error, broken source, date discrepancy, translation issue, or privacy concern.
+title: "[CORRECTION]: "
+labels: ["correction", "editorial-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Insaf Archive — Evidentiary Correction Request
+        Thank you for helping maintain the highest standard of accuracy in **Insaf Archive (انصاف آرکائیو)**.
+        All correction requests are thoroughly audited against original primary records.
+
+  - type: input
+    id: record_id
+    attributes:
+      label: Record ID or URL (ریکارڈ کی شناخت یا لنک)
+      placeholder: e.g. rec-pk-2022-arshad-sharif-killing or https://insafarchive.pk/archive/rec-pk-...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: correction_type
+    attributes:
+      label: Nature of Correction (تصحیح کی نوعیت)
+      options:
+        - Factual Inaccuracy (غلط معلومات یا بیان)
+        - Misclassified Finding / Allegation Conflation (الزام اور عدالتی فیصلے میں غلط تفریق)
+        - Broken Source / Missing Citation (ناقص یا نامکمل حوالہ)
+        - Translation / Language Discrepancy (ترجمے یا اردو متن کی خامی)
+        - Date / Chronology Discrepancy (تاریخ یا زمانی ترتیب کی غلطی)
+        - Privacy / Confidentiality Concern (رازداری یا قانونی استحقاق کا مسئلہ)
+        - Copyright / Provenance Concern (حقوقِ اشاعت کا مسئلہ)
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current Archival Text / Assertion (موجودہ متن)
+      placeholder: Quote the exact statement or section in the record...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_correction
+    attributes:
+      label: Proposed Corrected Text (مجوزہ درست متن)
+      placeholder: State the accurate factual description...
+    validations:
+      required: true
+
+  - type: textarea
+    id: primary_sources
+    attributes:
+      label: Supporting Primary Sources (تصدیقی شواہد و حوالہ جات)
+      placeholder: Provide gazette, court judgment citation, official document, or verified link supporting this correction...
+    validations:
+      required: true

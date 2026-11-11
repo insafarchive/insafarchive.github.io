@@ -1,0 +1,142 @@
+name: Archival Record Submission (نئے ریکارڈ کا اندراج)
+description: Submit a structured evidentiary record for editorial review into Insaf Archive.
+title: "[SUBMISSION]: "
+labels: ["submission", "under-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Insaf Archive — Structured Evidentiary Submission
+        Thank you for submitting a record to **Insaf Archive (انصاف آرکائیو)**.
+        All submissions must adhere to the **Non-Fabrication Policy** and provide verifiable primary/secondary sources.
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Archival Domain (دائرہ کار)
+      options:
+        - legal
+        - human_rights
+        - journalism_media
+        - political_constitutional
+        - historical
+        - economic_public_policy
+        - people_institutions
+        - evidence_media
+    validations:
+      required: true
+
+  - type: dropdown
+    id: record_type
+    attributes:
+      label: Record Type (ریکارڈ کی قسم)
+      options:
+        - court_case
+        - court_judgment
+        - constitutional_petition
+        - fir_criminal_proceeding
+        - human_rights_incident
+        - blasphemy_case_record
+        - journalist_profile
+        - journalist_killing
+        - investigative_report
+        - political_event
+        - constitutional_event
+        - ipp_record
+        - privatization_record
+        - person_profile
+        - institution_profile
+        - commission_report
+        - audit_report
+    validations:
+      required: true
+
+  - type: input
+    id: title_en
+    attributes:
+      label: Title (English)
+      placeholder: e.g. Supreme Court Judgment on Military Court Trials of Civilians
+    validations:
+      required: true
+
+  - type: input
+    id: title_ur
+    attributes:
+      label: Title (Urdu - اردو عنوان)
+      placeholder: e.g. سپریم کورٹ کا عام شہریوں کے فوجی عدالتوں میں ٹرائل کے خلاف فیصلہ
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary_en
+    attributes:
+      label: Summary (English)
+      placeholder: Concise objective summary of the event or legal finding...
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary_ur
+    attributes:
+      label: Summary (Urdu - اردو خلاصہ)
+      placeholder: واقعے یا عدالتی فیصلے کا غیر جانبدارانہ اور جامع خلاصہ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: narrative_en
+    attributes:
+      label: Detailed Markdown Narrative (English)
+      placeholder: Full procedural history, factual findings, or documented developments...
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources_list
+    attributes:
+      label: Primary Sources & Citations (بنیادی شواہد و دستاویزات)
+      description: |
+        List every source with Title, Publisher, Document Identifier (e.g. PLD citation, FIR number), Date, and URL/Archive URL (if available).
+        Physical documents without URLs are fully supported.
+      placeholder: |
+        1. Title: Supreme Court Judgment Const. Pet. 24/2023
+           Publisher: Supreme Court of Pakistan
+           Date: 2023-10-23
+           Document ID: Const. Petition No. 24/2023
+           URL: https://www.supremecourt.gov.pk
+           Verification Status: primary_source
+    validations:
+      required: true
+
+  - type: textarea
+    id: claims_propositions
+    attributes:
+      label: Evidentiary Propositions & Findings (شواہد اور قانونی نتائج)
+      description: Explicitly separate Allegations from Court Findings, Documented Facts, and Police Findings.
+      placeholder: |
+        - Proposition 1: [court_finding] Supreme Court held trial of civilians unconstitutional under Article 10A.
+        - Proposition 2: [official_position] Attorney General argued Army Act applies to protected installations.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: privacy_classification
+    attributes:
+      label: Privacy Classification (رازداری کا درجہ)
+      options:
+        - public
+        - public_sensitive
+        - restricted_editorial
+        - do_not_publish
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: non_fabrication_agreement
+    attributes:
+      label: Evidentiary Verification & Integrity Agreement
+      options:
+        - label: I confirm all assertions are backed by cited sources and distinguish allegations from judicial findings.
+          required: true
+        - label: I confirm this submission contains no private confidential secrets or unverified defamatory claims.
+          required: true
