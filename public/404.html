@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found | صفحہ دستیاب نہیں - Insaf Archive | انصاف آرکائیو</title>
+    <meta name="description" content="The requested legal record or page was not found in the Insaf Archive repository." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Nastaliq+Urdu:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Single Page Application redirect handling for GitHub Pages
+      // If a user navigates directly to a subpath, redirect to the index page with parameter
+      (function() {
+        var pathSegments = window.location.pathname.split('/');
+        // Extract repo name if hosted on user.github.io/repo/
+        var repoName = 'insafarchive';
+        var repoIndex = pathSegments.indexOf(repoName);
+        var subpath = repoIndex !== -1 ? pathSegments.slice(repoIndex + 1).join('/') : pathSegments.filter(Boolean).join('/');
+        if (subpath && subpath !== '404.html' && subpath !== 'index.html') {
+          var targetUrl = (repoIndex !== -1 ? '/' + repoName + '/' : '/') + '?path=' + encodeURIComponent(subpath) + (window.location.search ? '&' + window.location.search.slice(1) : '') + window.location.hash;
+          // Only redirect if valid subpath
+          if (subpath === 'cases' || subpath === 'judgments' || subpath === 'reports' || subpath === 'videos' || subpath === 'dashboard' || subpath === 'methodology' || subpath === 'corrections' || subpath === 'contribute' || subpath === 'admin' || subpath === 'dataValidator') {
+            window.location.replace((repoIndex !== -1 ? '/' + repoName + '/' : '/') + '?page=' + subpath);
+          }
+        }
+      })();
+    </script>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background-color: #0B132B;
+        color: #E2E8F0;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        text-align: center;
+      }
+      .card {
+        background: #111C3A;
+        border: 1px solid rgba(197, 168, 92, 0.25);
+        border-radius: 12px;
+        max-width: 640px;
+        width: 100%;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 4px;
+        background: #18254B;
+        border: 1px solid rgba(197, 168, 92, 0.3);
+        color: #E0C57A;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+      }
+      h1 {
+        font-family: 'Cinzel', serif;
+        font-size: 2.25rem;
+        color: #FFFFFF;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+      .urdu-title {
+        font-family: 'Noto Nastaliq Urdu', serif;
+        font-size: 1.5rem;
+        color: #E0C57A;
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+      }
+      p {
+        color: #94A3B8;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+      .urdu-text {
+        font-family: 'Noto Nastaliq Urdu', serif;
+        direction: rtl;
+        line-height: 2.2;
+        margin-bottom: 2rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+      }
+      a.btn-primary {
+        display: inline-block;
+        background: #C5A85C;
+        color: #0B132B;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 0.65rem 1.25rem;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      a.btn-primary:hover {
+        background: #E0C57A;
+      }
+      a.btn-secondary {
+        display: inline-block;
+        background: #18254B;
+        color: #E2E8F0;
+        font-weight: 500;
+        font-size: 0.875rem;
+        padding: 0.65rem 1.25rem;
+        border-radius: 6px;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: background 0.2s;
+      }
+      a.btn-secondary:hover {
+        background: #1F3060;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="badge">404 — Record Not Found</div>
+      <h1>Record Not Found</h1>
+      <div class="urdu-title">مطلوبہ عدالتی ریکارڈ یا صفحہ دستیاب نہیں ہے</div>
+      <p>
+        The requested case docket, document, or archive path does not exist or may have been moved following an editorial review.
+      </p>
+      <p class="urdu-text">
+        آپ کا مطلوبہ عدالتی مسودہ، صفحہ یا ریکارڈ آرکائیو میں موجود نہیں ہے۔ برائے مہربانی ہوم پیج یا سرچ ٹول کے ذریعے ریکارڈ تلاش کریں۔
+      </p>
+      <div class="actions">
+        <a href="./" class="btn-primary">Return to Archive Home / ہوم پیج</a>
+        <a href="./?page=cases" class="btn-secondary">Browse Cases / مقدمات</a>
+        <a href="./?page=judgments" class="btn-secondary">Judgments / فیصلے</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,176 @@
+name: '⚖️ New Case Submission / نیا مقدمہ تجویز کریں'
+description: Propose a new legal proceeding, court docket, or constitutional petition for inclusion.
+title: '[New Case]: '
+labels: ['submission:new-case', 'status:under-review']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Insaf Archive — New Case Record Proposal
+        Thank you for submitting a case record. All submissions undergo **strict editorial review** before inclusion.
+        - **Zero Cost & Open Access**: Insaf Archive is hosted for free on GitHub Pages and maintained as a public legal reference.
+        - **Evidentiary Standard**: We strictly distinguish between unproven police/FIR allegations, party claims, official order sheets, and binding judicial findings.
+        - **Privacy Review**: Do NOT include unredacted names of minors (Juvenile Justice System Act 2018), victims of gender-based violence, or privileged lawyer-client communications.
+
+  - type: input
+    id: proposed_id
+    attributes:
+      label: Proposed Stable Case ID (if known)
+      description: e.g. `PK-SC-2024-0102` or `PK-LHC-2023-0451`. If unsure, maintainers will assign one.
+      placeholder: PK-[COURT]-[YEAR]-[NUM]
+    validations:
+      required: false
+
+  - type: input
+    id: case_title_en
+    attributes:
+      label: Case Title in English
+      description: Formal legal name or descriptive title (e.g. "State v. Shahid Akram" or "Petition on Digital Speech & Article 19").
+      placeholder: Enter English case title...
+    validations:
+      required: true
+
+  - type: input
+    id: case_title_ur
+    attributes:
+      label: Case Title in Urdu (مقدمے کا اردو عنوان)
+      description: اردو میں مقدمے کا باضابطہ یا وضاحتی عنوان
+      placeholder: اردو عنوان درج کریں...
+    validations:
+      required: true
+
+  - type: input
+    id: court_and_bench
+    attributes:
+      label: Presiding Court & Bench
+      description: Name of the court and composition of the bench (e.g. "Supreme Court of Pakistan — Three-Member Constitutional Bench").
+      placeholder: Supreme Court / Lahore High Court / Islamabad High Court...
+    validations:
+      required: true
+
+  - type: input
+    id: case_number
+    attributes:
+      label: Official Docket / Case / FIR Number
+      description: Public court case number (e.g. `Const. P. 102/2024`, `Crl. Misc. No. 412-B/2023`, `FIR 104/2023 PS Kohsar`).
+      placeholder: e.g. Const. P. 102/2024
+    validations:
+      required: true
+
+  - type: dropdown
+    id: procedural_status
+    attributes:
+      label: Current Procedural Status
+      description: Select the exact current legal posture. (Note: Bail is an interim order, NOT an acquittal!).
+      options:
+        - 'reported (Reported / Initial FIR lodged)'
+        - 'under_investigation (Under statutory investigation)'
+        - 'pending_trial (Pending trial / Sub Judice)'
+        - 'bail_granted (Bail granted pending trial - NOT an acquittal)'
+        - 'acquitted (Acquitted following trial / Sec 249-A CrPC)'
+        - 'convicted (Convicted by trial court - Subject to appeal)'
+        - 'dismissed (Dismissed on procedural / threshold grounds)'
+        - 'appealed (Appealed to High Court or Supreme Court)'
+        - 'disposed_of (Disposed of with administrative directions)'
+        - 'unknown (Procedural status currently unconfirmed)'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Primary Archive Category
+      options:
+        - 'court_judgments (Court Judgments & Orders)'
+        - 'criminal_proceedings (Criminal Proceedings)'
+        - 'civil_litigation (Civil Litigation)'
+        - 'bail_acquittal (Bail & Acquittal Records)'
+        - 'arrest_detention (Arrest & Detention Reports)'
+        - 'alleged_police_misconduct (Alleged Police Misconduct)'
+        - 'human_rights (Human Rights Related Cases)'
+        - 'missing_persons (Missing Persons & Habeas Corpus)'
+        - 'labour_poverty (Labour & Poverty Disputes)'
+        - 'women_children (Women & Children Legal Rights)'
+        - 'public_interest_political (Public Interest & Political Cases)'
+        - 'video_evidence (Video & Documentary Evidence)'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: province
+    attributes:
+      label: Jurisdiction / Province
+      options:
+        - 'punjab'
+        - 'sindh'
+        - 'khyber_pakhtunkhwa'
+        - 'balochistan'
+        - 'islamabad_ict'
+        - 'gilgit_baltistan'
+        - 'azad_kashmir'
+        - 'federal'
+    validations:
+      required: true
+
+  - type: input
+    id: relevant_dates
+    attributes:
+      label: Relevant Dates (Filing, Incident, Orders)
+      description: Please provide known ISO dates (`YYYY-MM-DD`).
+      placeholder: Incident: 2023-11-10; Filing: 2023-11-20; Latest Order: 2024-03-12
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Concise Summary (English & Urdu if possible)
+      description: A neutral 2-3 paragraph summary of the legal questions and factual background.
+    validations:
+      required: true
+
+  - type: textarea
+    id: parties_and_roles
+    attributes:
+      label: Parties & Counsel Roles (with Privacy Precautions)
+      description: List petitioner, respondent, state, or defense counsel. Ensure minors are listed as `[Minor / Protected]`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidentiary_breakdown
+    attributes:
+      label: Evidentiary Breakdown (Allegations vs. Official Findings)
+      description: |
+        Please clearly categorize the facts:
+        - **Allegations / Police Claims**: What does the prosecution or complainant claim?
+        - **Party Statements / Defense**: What does the defense or petitioner plead?
+        - **Official Records**: What is documented in certified order sheets or registers?
+        - **Judicial Findings**: What did the court actually hold or rule?
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources_and_citations
+    attributes:
+      label: Primary Source URLs, Law Citations, and Document Links
+      description: Official court websites, reported law citations (e.g. `2024 SCMR 301`, `PLD 2024 Lah 115`), institutional gazettes, or verified media reports.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contributor_checklist
+    attributes:
+      label: Contributor Verification & Privacy Checklist
+      description: You must confirm the following before this issue can be accepted for review:
+      options:
+        - label: I confirm that no juvenile identities (under 18) or victims of sexual violence are named in this submission.
+          required: true
+        - label: I have distinguished between preliminary police allegations and binding judicial findings.
+          required: true
+        - label: I have verified that cited court orders, case numbers, and dates correspond to public records.
+          required: true
+        - label: I understand that submission does NOT immediately alter the live website; an administrator must review, validate, and merge the record into repository code.
+          required: true
+        - label: This submission contains NO privileged lawyer-client communications or non-disclosable material.
+          required: true

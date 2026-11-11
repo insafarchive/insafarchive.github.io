@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Insaf Archive Editorial Methodology & Verification Charter
+    url: https://insafarchive.github.io/insafarchive/
+    about: Read our evidentiary standards and verification rules before submitting.
+  - name: Non-GitHub Submission / Alternative Contact
+    url: mailto:editorial@insafarchive.org
+    about: For authorized legal practitioners unable to use GitHub to submit case files.
